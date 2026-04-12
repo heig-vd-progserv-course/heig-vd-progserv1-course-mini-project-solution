@@ -41,6 +41,7 @@ const WELCOME_MESSAGE = "Bienvenue sur la page d'accueil du cours de Programmati
 
     <ul>
         <li>Accéder aux <a href="./exercices/index.php">exercices</a>.</li>
+        <li>Accéder au <a href="./mini-projet/index.php">mini-projet</a>.</li>
         <li>Accéder à la page de <a href="./phpinfo.php">configuration de PHP</a>.</li>
         <li>Tester la gestion des exceptions avec le fichier <a href="./exception.php">exception.php</a>.</li>
     </ul>

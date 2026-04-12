@@ -1,0 +1,8 @@
+/* Classe personnalisée pour le logo */
+.logo {
+	margin-bottom: 10px;
+	width: 200px;
+	padding: 20px;
+	border-radius: 100%;
+	background-color: #0172ad;
+}
