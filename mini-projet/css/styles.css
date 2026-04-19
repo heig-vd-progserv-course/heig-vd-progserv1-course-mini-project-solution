@@ -6,3 +6,14 @@
 	border-radius: 100%;
 	background-color: #0172ad;
 }
+
+/* Styles pour que l'élément principal de la page prenne toute la hauteur disponible */
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
+}
