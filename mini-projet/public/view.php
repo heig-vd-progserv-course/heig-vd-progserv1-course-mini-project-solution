@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/../src/functions.php';
 
-$petId = $_GET['id'];
+$petId = $_GET['id'] ?? null;
+
+if ($petId === null) {
+    header('Location: ./index.php');
+    exit;
+}
 
 $pet = getPetById($petId);
 
