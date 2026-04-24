@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 required />
 
             <label for="species">Espèce</label>
-            <select id="species" name="species">
+            <select id="species" name="species" required>
                 <option
                     value="dog"
                     <?= $species === "dog" ? "selected" : "" ?> />
