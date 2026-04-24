@@ -21,7 +21,6 @@ function getPetById(int $id): ?array {
 
 function validatePet(
     ?string $name,
-    ?string $species,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -37,14 +36,6 @@ function validatePet(
 
     if (strlen($name) > 50) {
         array_push($errors, "Le nom doit contenir au maximum 50 caractères.");
-    }
-
-    if (empty($species)) {
-        array_push($errors, "L'espèce est obligatoire.");
-    }
-
-    if (!in_array($species, ["dog", "cat", "lizard", "snake", "bird", "rabbit", "other"])) {
-        array_push($errors, "L'espèce n'est pas valide.");
     }
 
     return $errors;
