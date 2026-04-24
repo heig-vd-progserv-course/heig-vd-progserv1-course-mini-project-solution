@@ -85,40 +85,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="species">Espèce</label>
             <select id="species" name="species">
                 <option
-                    value="dog"
-                    Chien
-                    <?= $species === "dog" ? "selected" : "" ?>
-                    </option>
+                    value="dog" />
+                Chien
+                </option>
                 <option
-                    value="cat"
-                    Chat
-                    <?= $species === "cat" ? "selected" : "" ?>
-                    </option>
+                    value="cat" />
+                Chat
+                </option>
                 <option
-                    value="lizard"
-                    Lézard
-                    <?= $species === "lizard" ? "selected" : "" ?>
-                    </option>
+                    value="lizard" />
+                Lézard
+                </option>
                 <option
-                    value="snake"
-                    Serpent
-                    <?= $species === "snake" ? "selected" : "" ?>
-                    </option>
+                    value="snake" />
+                Serpent
+                </option>
                 <option
-                    value="bird"
-                    Oiseau
-                    <?= $species === "bird" ? "selected" : "" ?>
-                    </option>
+                    value="bird" />
+                Oiseau
+                </option>
                 <option
-                    value="rabbit"
-                    Lapin
-                    <?= $species === "rabbit" ? "selected" : "" ?>
-                    </option>
+                    value="rabbit" />
+                Lapin
+                </option>
                 <option
-                    value="other"
-                    Autre
-                    <?= $species === "other" ? "selected" : "" ?>
-                    </option>
+                    value="other" />
+                Autre
+                </option>
             </select>
 
             <button type="submit">Créer le nouvel animal</button>
