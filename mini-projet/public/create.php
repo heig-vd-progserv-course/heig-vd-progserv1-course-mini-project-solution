@@ -121,6 +121,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </option>
             </select>
 
+            <label for="nickname">Surnom (optionnel)</label>
+            <input
+                type="text"
+                id="nickname"
+                name="nickname" />
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
