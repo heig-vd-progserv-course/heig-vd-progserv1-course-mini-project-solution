@@ -22,6 +22,7 @@ function getPetById(int $id): ?array {
 function validatePet(
     ?string $name,
     ?string $species,
+    ?string $nickname,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -39,6 +40,14 @@ function validatePet(
         array_push($errors, "L'espèce est obligatoire.");
     } else if (!in_array($species, ["dog", "cat", "lizard", "snake", "bird", "rabbit", "other"])) {
         array_push($errors, "L'espèce n'est pas valide.");
+    }
+
+    if (!empty($nickname)) {
+        if (strlen($nickname) < 2) {
+            array_push($errors, "Le surnom doit contenir au minimum 2 caractères.");
+        } else if (strlen($nickname) > 50) {
+            array_push($errors, "Le surnom doit contenir au maximum 30 caractères.");
+        }
     }
 
     return $errors;
