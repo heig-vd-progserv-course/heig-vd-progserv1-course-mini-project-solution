@@ -29,21 +29,15 @@ function validatePet(
     // Validation des données
     if (empty($name)) {
         array_push($errors, "Le nom est obligatoire.");
-    }
-
-    if (strlen($name) < 2) {
+    } else if (strlen($name) < 2) {
         array_push($errors, "Le nom doit contenir au minimum 2 caractères.");
-    }
-
-    if (strlen($name) > 50) {
+    } else if (strlen($name) > 50) {
         array_push($errors, "Le nom doit contenir au maximum 50 caractères.");
     }
 
     if (empty($species)) {
         array_push($errors, "L'espèce est obligatoire.");
-    }
-
-    if (!in_array($species, ["dog", "cat", "lizard", "snake", "bird", "rabbit", "other"])) {
+    } else if (!in_array($species, ["dog", "cat", "lizard", "snake", "bird", "rabbit", "other"])) {
         array_push($errors, "L'espèce n'est pas valide.");
     }
 
