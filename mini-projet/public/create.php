@@ -132,6 +132,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 minlength="2"
                 maxlength="50" />
 
+
+            <fieldset>
+                <legend>Sexe</legend>
+
+                <input
+                    type="radio"
+                    id="male"
+                    name="sex"
+                    value="male" />
+                <label for="male">Mâle</label>
+
+                <input
+                    type="radio"
+                    id="female"
+                    name="sex"
+                    value="female" />
+                <label for="female">Femelle</label>
+            </fieldset>
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
