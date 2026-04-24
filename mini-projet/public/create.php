@@ -80,6 +80,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 maxlength="50"
                 required />
 
+            <label for="species">Espèce</label>
+            <select id="species" name="species">
+                <option
+                    value="dog"
+                    Chien
+                    </option>
+                <option
+                    value="cat"
+                    Chat
+                    </option>
+                <option
+                    value="lizard"
+                    Lézard
+                    </option>
+                <option
+                    value="snake"
+                    Serpent
+                    </option>
+                <option
+                    value="bird"
+                    Oiseau
+                    </option>
+                <option
+                    value="rabbit"
+                    Lapin
+                    </option>
+                <option
+                    value="other"
+                    Autre
+                    </option>
+            </select>
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
