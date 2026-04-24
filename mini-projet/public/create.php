@@ -85,31 +85,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="species">Espèce</label>
             <select id="species" name="species">
                 <option
-                    value="dog" />
+                    value="dog"
+                    <?= $species === "dog" ? "selected" : "" ?> />
                 Chien
                 </option>
                 <option
-                    value="cat" />
+                    value="cat"
+                    <?= $species === "cat" ? "selected" : "" ?> />
                 Chat
                 </option>
                 <option
-                    value="lizard" />
+                    value="lizard"
+                    <?= $species === "lizard" ? "selected" : "" ?> />
                 Lézard
                 </option>
                 <option
-                    value="snake" />
+                    value="snake"
+                    <?= $species === "snake" ? "selected" : "" ?> />
                 Serpent
                 </option>
                 <option
-                    value="bird" />
+                    value="bird"
+                    <?= $species === "bird" ? "selected" : "" ?> />
                 Oiseau
                 </option>
                 <option
-                    value="rabbit" />
+                    value="rabbit"
+                    <?= $species === "rabbit" ? "selected" : "" ?> />
                 Lapin
                 </option>
                 <option
-                    value="other" />
+                    value="other"
+                    <?= $species === "other" ? "selected" : "" ?> />
                 Autre
                 </option>
             </select>
