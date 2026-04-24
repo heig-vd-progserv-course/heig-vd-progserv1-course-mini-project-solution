@@ -128,7 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="text"
                 id="nickname"
                 name="nickname"
-                value="<?= $nickname ?>" />
+                value="<?= $nickname ?>"
+                minlength="2"
+                maxlength="50" />
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
