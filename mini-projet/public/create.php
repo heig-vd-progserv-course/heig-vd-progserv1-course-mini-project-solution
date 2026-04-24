@@ -3,6 +3,7 @@ require_once __DIR__ . '/../src/functions.php';
 
 // Définition des valeurs par défaut de l'animal de compagnie
 $name = $_POST["name"] ?? null;
+$species = $_POST["species"] ?? null;
 
 // Gestion de la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
