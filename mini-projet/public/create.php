@@ -176,6 +176,54 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 name="color"
                 value="<?= $color ?>" />
 
+            <fieldset>
+                <legend>Personnalité (optionnel)</legend>
+
+                <input
+                    type="checkbox"
+                    id="friendly"
+                    name="personalities[]"
+                    value="friendly"
+                    checked="" />
+                <label for="friendly">Gentil</label>
+
+                <input
+                    type="checkbox"
+                    id="playful"
+                    name="personalities[]"
+                    value="playful"
+                    checked="" />
+                <label for="playful">Joueur</label>
+
+                <input
+                    type="checkbox"
+                    id="lazy"
+                    name="personalities[]"
+                    value="lazy" />
+                <label for="lazy">Paresseux</label>
+
+                <input
+                    type="checkbox"
+                    id="shy"
+                    name="personalities[]"
+                    value="shy" />
+                <label for="shy">Timide</label>
+
+                <input
+                    type="checkbox"
+                    id="curious"
+                    name="personalities[]"
+                    value="curious" />
+                <label for="curious">Curieux</label>
+
+                <input
+                    type="checkbox"
+                    id="aggressive"
+                    name="personalities[]"
+                    value="aggressive" />
+                <label for="aggressive">Agressif</label>
+            </fieldset>
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
