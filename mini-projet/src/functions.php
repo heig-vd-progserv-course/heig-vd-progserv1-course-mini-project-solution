@@ -29,6 +29,7 @@ function validatePet(
     ?array $personalities,
     ?string $size,
     ?string $weight,
+    ?string $notes,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -93,6 +94,14 @@ function validatePet(
     if (!empty($weight)) {
         if (!is_numeric($weight) || $weight < 1) {
             array_push($errors, "Le poids doit être un nombre positif plus grand que 0.");
+        }
+    }
+
+    if (!empty($notes)) {
+        if (strlen($notes) < 10) {
+            array_push($errors, "Les notes doivent contenir au minimum 10 caractères.");
+        } else if (strlen($notes) > 500) {
+            array_push($errors, "Les notes doivent contenir au maximum 500 caractères.");
         }
     }
 
