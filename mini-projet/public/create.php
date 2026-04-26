@@ -142,6 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     id="male"
                     name="sex"
                     value="male"
+                    required
                     <?= $sex === "male" ? "checked" : "" ?> />
                 <label for="male">Mâle</label>
 
@@ -150,6 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     id="female"
                     name="sex"
                     value="female"
+                    required
                     <?= $sex === "female" ? "checked" : "" ?> />
                 <label for="female">Femelle</label>
             </fieldset>
