@@ -254,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 id="notes"
                 name="notes"
                 rows="4"
-                cols="50"></textarea>
+                cols="50"><?= $notes ?></textarea>
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
