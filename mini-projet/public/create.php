@@ -163,7 +163,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="date"
                 id="birthday"
                 name="birthday"
-                value="<?= $birthday ?>" />
+                value="<?= $birthday ?>"
+                required
+                max="<?= date("Y-m-d") ?>" />
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
