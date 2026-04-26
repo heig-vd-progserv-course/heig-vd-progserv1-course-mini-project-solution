@@ -247,6 +247,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 min="0.1"
                 step="0.1" />
 
+            <label for="notes">Notes (optionnel)</label>
+            <textarea
+                id="notes"
+                name="notes"
+                rows="4"
+                cols="50"></textarea>
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
