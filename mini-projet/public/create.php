@@ -232,7 +232,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input
                 type="number"
                 id="size"
-                name="size" />
+                name="size"
+                value="<?= $size ?>" />
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
