@@ -163,7 +163,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="date"
                 id="birthday"
                 name="birthday"
-                value="<?= $birthday ?>" />
+                value="<?= $birthday ?>"
+                required />
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
