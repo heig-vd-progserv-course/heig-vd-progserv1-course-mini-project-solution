@@ -27,6 +27,7 @@ function validatePet(
     ?string $birthday,
     ?string $color,
     ?array $personalities,
+    ?string $size,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -79,6 +80,12 @@ function validatePet(
             if (!in_array($personality, ["friendly", "playful", "lazy", "shy", "curious", "aggressive"])) {
                 array_push($errors, "La personnalité '$personality' n'est pas valide.");
             }
+        }
+    }
+
+    if (!empty($size)) {
+        if (!is_numeric($size) || $size < 0) {
+            array_push($errors, "La taille doit être un nombre positif.");
         }
     }
 
