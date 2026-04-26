@@ -56,7 +56,7 @@ function validatePet(
 
     if (empty($sex)) {
         array_push($errors, "Le sexe est obligatoire.");
-    } else if (!in_array($species, ["male", "female"])) {
+    } else if (!in_array($sex, ["male", "female"])) {
         array_push($errors, "Le sexe n'est pas valide.");
     }
 

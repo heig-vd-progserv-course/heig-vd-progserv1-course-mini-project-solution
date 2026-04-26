@@ -185,42 +185,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     type="checkbox"
                     id="friendly"
                     name="personalities[]"
-                    value="friendly" />
+                    value="friendly"
+                    <?= in_array("friendly", $personalities) ? "checked" : "" ?> />
                 <label for="friendly">Gentil</label>
 
                 <input
                     type="checkbox"
                     id="playful"
                     name="personalities[]"
-                    value="playful" />
+                    value="playful"
+                    <?= in_array("playful", $personalities) ? "checked" : "" ?> />
                 <label for="playful">Joueur</label>
 
                 <input
                     type="checkbox"
                     id="lazy"
                     name="personalities[]"
-                    value="lazy" />
+                    value="lazy" <?= in_array("lazy", $personalities) ? "checked" : "" ?> />
                 <label for="lazy">Paresseux</label>
 
                 <input
                     type="checkbox"
                     id="shy"
                     name="personalities[]"
-                    value="shy" />
+                    value="shy" <?= in_array("shy", $personalities) ? "checked" : "" ?> />
                 <label for="shy">Timide</label>
 
                 <input
                     type="checkbox"
                     id="curious"
                     name="personalities[]"
-                    value="curious" />
+                    value="curious" <?= in_array("curious", $personalities) ? "checked" : "" ?> />
                 <label for="curious">Curieux</label>
 
                 <input
                     type="checkbox"
                     id="aggressive"
                     name="personalities[]"
-                    value="aggressive" />
+                    value="aggressive" <?= in_array("aggressive", $personalities) ? "checked" : "" ?> />
                 <label for="aggressive">Agressif</label>
             </fieldset>
 
