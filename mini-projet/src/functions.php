@@ -23,7 +23,6 @@ function validatePet(
     ?string $name,
     ?string $species,
     ?string $nickname,
-    ?string $sex,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -49,12 +48,6 @@ function validatePet(
         } else if (strlen($nickname) > 50) {
             array_push($errors, "Le surnom doit contenir au maximum 30 caractères.");
         }
-    }
-
-    if (empty($sex)) {
-        array_push($errors, "Le sexe est obligatoire.");
-    } else if (!in_array($species, ["male", "female"])) {
-        array_push($errors, "Le sexe n'est pas valide.");
     }
 
     return $errors;
