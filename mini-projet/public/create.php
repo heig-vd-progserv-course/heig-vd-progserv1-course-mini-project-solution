@@ -173,7 +173,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input
                 type="color"
                 id="color"
-                name="color" />
+                name="color"
+                value="<?= $color ?>" />
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
