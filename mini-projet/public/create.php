@@ -134,7 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 minlength="2"
                 maxlength="50" />
 
-
             <fieldset>
                 <legend>Sexe</legend>
 
@@ -142,14 +141,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     type="radio"
                     id="male"
                     name="sex"
-                    value="male" />
+                    value="male"
+                    <?= $sex === "male" ? "checked" : "" ?> />
                 <label for="male">Mâle</label>
 
                 <input
                     type="radio"
                     id="female"
                     name="sex"
-                    value="female" />
+                    value="female"
+                    <?= $sex === "female" ? "checked" : "" ?> />
                 <label for="female">Femelle</label>
             </fieldset>
 
