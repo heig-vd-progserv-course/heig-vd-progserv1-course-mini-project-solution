@@ -28,6 +28,7 @@ function validatePet(
     ?string $color,
     ?array $personalities,
     ?string $size,
+    ?string $weight,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -86,6 +87,12 @@ function validatePet(
     if (!empty($size)) {
         if (!is_numeric($size) || $size < 1) {
             array_push($errors, "La taille doit être un nombre positif plus grand que 0.");
+        }
+    }
+
+    if (!empty($weight)) {
+        if (!is_numeric($weight) || $weight < 1) {
+            array_push($errors, "Le poids doit être un nombre positif plus grand que 0.");
         }
     }
 
