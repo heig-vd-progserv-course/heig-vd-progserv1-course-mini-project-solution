@@ -24,6 +24,7 @@ function validatePet(
     ?string $species,
     ?string $nickname,
     ?string $sex,
+    ?string $birthday,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -55,6 +56,14 @@ function validatePet(
         array_push($errors, "Le sexe est obligatoire.");
     } else if (!in_array($species, ["male", "female"])) {
         array_push($errors, "Le sexe n'est pas valide.");
+    }
+
+    if (!empty($birthday)) {
+        if (strtotime($birthday) === false) {
+            array_push($errors, "La date de naissance n'est pas valide.");
+        } else if (strtotime($birthday) > time()) {
+            array_push($errors, "La date de naissance ne peut pas être dans le futur.");
+        }
     }
 
     return $errors;

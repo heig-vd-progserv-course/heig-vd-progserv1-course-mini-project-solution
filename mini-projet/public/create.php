@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $species,
         $nickname,
         $sex,
+        $birthday,
     );
 
     // S'il n'y a pas d'erreurs, affiche les données de l'animal de compagnie qui va être ajouté
