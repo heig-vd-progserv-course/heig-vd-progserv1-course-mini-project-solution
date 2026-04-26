@@ -9,6 +9,7 @@ $sex = $_POST["sex"] ?? null;
 $birthday = $_POST["birthday"] ?? null;
 $color = $_POST["color"] ?? null;
 $personalities = $_POST["personalities"] ?? [];
+$size = $_POST["size"] ?? null;
 
 // Gestion de la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
