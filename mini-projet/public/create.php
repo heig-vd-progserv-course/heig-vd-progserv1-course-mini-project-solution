@@ -156,6 +156,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="female">Femelle</label>
             </fieldset>
 
+            <label for="birthday">Date de naissance</label>
+            <input
+                type="date"
+                id="birthday"
+                name="birthday" />
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
