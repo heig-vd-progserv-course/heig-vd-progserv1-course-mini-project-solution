@@ -26,6 +26,7 @@ function validatePet(
     ?string $sex,
     ?string $birthday,
     ?string $color,
+    ?array $personalities,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -70,6 +71,14 @@ function validatePet(
     if (!empty($color)) {
         if (!preg_match("/^#[a-f0-9]{6}$/i", $color)) {
             array_push($errors, "La couleur n'est pas valide.");
+        }
+    }
+
+    if (!empty($personalities)) {
+        foreach ($personalities as $personality) {
+            if (!in_array($personality, ["friendly", "playful", "lazy", "shy", "curious", "aggressive"])) {
+                array_push($errors, "La personnalité '$personality' n'est pas valide.");
+            }
         }
     }
 

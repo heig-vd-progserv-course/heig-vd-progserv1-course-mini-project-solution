@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sex,
         $birthday,
         $color,
+        $personalities,
     );
 
     // S'il n'y a pas d'erreurs, affiche les données de l'animal de compagnie qui va être ajouté
