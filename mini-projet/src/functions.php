@@ -84,8 +84,8 @@ function validatePet(
     }
 
     if (!empty($size)) {
-        if (!is_numeric($size) || $size < 0) {
-            array_push($errors, "La taille doit être un nombre positif.");
+        if (!is_numeric($size) || $size < 1) {
+            array_push($errors, "La taille doit être un nombre positif plus grand que 0.");
         }
     }
 
