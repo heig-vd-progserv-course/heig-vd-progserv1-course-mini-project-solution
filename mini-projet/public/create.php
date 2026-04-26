@@ -236,6 +236,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 value="<?= $size ?>"
                 min="1" />
 
+            <label for="size">Poids en kg (optionnel)</label>
+            <input
+                type="number"
+                id="weight"
+                name="weight" />
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
