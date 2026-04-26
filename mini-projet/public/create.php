@@ -226,6 +226,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="aggressive">Agressif</label>
             </fieldset>
 
+            <label for="size">Taille en cm (optionnel)</label>
+            <input
+                type="number"
+                id="size"
+                name="size" />
+
             <button type="submit">Créer le nouvel animal</button>
         </form>
     </main>
