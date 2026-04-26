@@ -185,16 +185,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     type="checkbox"
                     id="friendly"
                     name="personalities[]"
-                    value="friendly"
-                    checked="" />
+                    value="friendly" />
                 <label for="friendly">Gentil</label>
 
                 <input
                     type="checkbox"
                     id="playful"
                     name="personalities[]"
-                    value="playful"
-                    checked="" />
+                    value="playful" />
                 <label for="playful">Joueur</label>
 
                 <input
