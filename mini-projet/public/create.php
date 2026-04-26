@@ -5,6 +5,7 @@ require_once __DIR__ . '/../src/functions.php';
 $name = $_POST["name"] ?? null;
 $species = $_POST["species"] ?? null;
 $nickname = $_POST["nickname"] ?? null;
+$sex = $_POST["sex"] ?? null;
 
 // Gestion de la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
