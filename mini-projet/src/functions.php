@@ -25,6 +25,7 @@ function validatePet(
     ?string $nickname,
     ?string $sex,
     ?string $birthday,
+    ?string $color,
 ): array {
     // Par défaut, il n'y a pas d'erreurs
     $errors = [];
@@ -63,6 +64,12 @@ function validatePet(
             array_push($errors, "La date de naissance n'est pas valide.");
         } else if (strtotime($birthday) > time()) {
             array_push($errors, "La date de naissance ne peut pas être dans le futur.");
+        }
+    }
+
+    if (!empty($color)) {
+        if (!preg_match("/^#[a-f0-9]{6}$/i", $color)) {
+            array_push($errors, "La couleur n'est pas valide.");
         }
     }
 
