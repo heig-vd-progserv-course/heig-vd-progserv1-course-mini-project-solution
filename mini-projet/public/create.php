@@ -11,6 +11,7 @@ $color = $_POST["color"] ?? null;
 $personalities = $_POST["personalities"] ?? [];
 $size = $_POST["size"] ?? null;
 $weight = $_POST["weight"] ?? null;
+$notes = $_POST["notes"] ?? null;
 
 // Gestion de la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
