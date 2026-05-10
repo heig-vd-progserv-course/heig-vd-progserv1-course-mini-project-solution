@@ -221,3 +221,54 @@ function deletePet(int $id): bool {
 
     return $success;
 }
+
+function updatePet(
+    int $id,
+    string $name,
+    string $species,
+    ?string $nickname,
+    string $sex,
+    ?string $birthday,
+    ?string $color,
+    ?array $personalities,
+    ?string $size,
+    ?string $weight,
+    ?string $notes,
+): bool {
+    global $pdo;
+
+    $sql = "UPDATE pets SET
+        name = :name,
+        species = :species,
+        nickname = :nickname,
+        sex = :sex,
+        birthday = :birthday,
+        color = :color,
+        personalities = :personalities,
+        size = :size,
+        weight = :weight,
+        notes = :notes
+    WHERE id = :id";
+
+    $stmt = $pdo->prepare($sql);
+
+    if ($personalities) {
+        $personalities = implode(",", $personalities);
+    }
+
+    $stmt->bindValue(':id', $id);
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':species', $species);
+    $stmt->bindValue(':nickname', $nickname);
+    $stmt->bindValue(':sex', $sex);
+    $stmt->bindValue(':birthday', $birthday);
+    $stmt->bindValue(':color', $color);
+    $stmt->bindValue(':personalities', $personalities);
+    $stmt->bindValue(':size', $size);
+    $stmt->bindValue(':weight', $weight);
+    $stmt->bindValue(':notes', $notes);
+
+    $success = $stmt->execute();
+
+    return $success;
+}
