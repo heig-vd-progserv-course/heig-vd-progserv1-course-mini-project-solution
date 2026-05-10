@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $sex,
             $birthday ?: null,
             $color ?: null,
-            $personalities ?: [],
+            $personalities ?: null,
             $size ?: null,
             $weight ?: null,
             $notes ?: null,
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="text"
                 id="name"
                 name="name"
-                value="<?= $name ?>"
+                value="<?= htmlspecialchars($name) ?>"
                 minlength="2"
                 maxlength="50"
                 required />
@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="text"
                 id="nickname"
                 name="nickname"
-                value="<?= $nickname ?>"
+                value="<?= htmlspecialchars($nickname) ?>"
                 minlength="2"
                 maxlength="50" />
 
@@ -187,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="date"
                 id="birthday"
                 name="birthday"
-                value="<?= $birthday ?>"
+                value="<?= htmlspecialchars($birthday) ?>"
                 required
                 max="<?= date("Y-m-d") ?>" />
 
@@ -196,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="color"
                 id="color"
                 name="color"
-                value="<?= $color ?>" />
+                value="<?= htmlspecialchars($color) ?>" />
 
             <fieldset>
                 <legend>Personnalité (optionnel)</legend>
@@ -251,7 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="number"
                 id="size"
                 name="size"
-                value="<?= $size ?>"
+                value="<?= htmlspecialchars($size) ?>"
                 min="1" />
 
             <label for="weight">Poids en kg (optionnel)</label>
@@ -259,7 +259,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 type="number"
                 id="weight"
                 name="weight"
-                value="<?= $weight ?>"
+                value="<?= htmlspecialchars($weight) ?>"
                 min="0.1"
                 step="0.1" />
 
@@ -270,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 rows="4"
                 cols="50"
                 minlength="10"
-                maxlength="500"><?= $notes ?></textarea>
+                maxlength="500"><?= htmlspecialchars($notes) ?></textarea>
 
             <button type="submit">Créer le nouvel animal</button>
         </form>
