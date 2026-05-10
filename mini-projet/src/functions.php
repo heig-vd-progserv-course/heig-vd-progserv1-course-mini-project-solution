@@ -207,3 +207,17 @@ function addPet(
 
     return $lastInsertId;
 }
+
+function deletePet(int $id): bool {
+    global $pdo;
+
+    $sql = "DELETE FROM pets WHERE id = :id";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindValue(':id', $id);
+
+    $success = $stmt->execute();
+
+    return $success;
+}

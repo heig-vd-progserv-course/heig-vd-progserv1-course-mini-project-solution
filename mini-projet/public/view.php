@@ -86,6 +86,12 @@ if ($pet === null) {
                 <li><strong>Notes</strong> : <?= nl2br(htmlspecialchars($pet['notes'])) ?></li>
             <?php } ?>
         </ul>
+
+        <div>
+            <a href="./delete.php?id=<?= htmlspecialchars($pet['id']) ?>">
+                <button class="button-full-width secondary">Accéder à la page de suppression</button>
+            </a>
+        </div>
     </main>
     <footer>
         <center>
