@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/database.php';
 
 function getPets(): array {
     global $pets;
