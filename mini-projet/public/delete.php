@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <button type="submit" class="contrast">Supprimer l'animal</button>
             <a href="./view.php?id=<?= htmlspecialchars($pet['id']) ?>">
-                <button class="button-full-width secondary">Revenir à la page de visualisation</button>
+                <button type="button" class="button-full-width secondary">Revenir à la page de visualisation</button>
             </a>
         </form>
     </main>

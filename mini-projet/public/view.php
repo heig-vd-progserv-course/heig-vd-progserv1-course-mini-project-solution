@@ -88,6 +88,9 @@ if ($pet === null) {
         </ul>
 
         <div>
+            <a href="./edit.php?id=<?= htmlspecialchars($pet['id']) ?>">
+                <button class="button-full-width">Accéder à la page de modification</button>
+            </a>
             <a href="./delete.php?id=<?= htmlspecialchars($pet['id']) ?>">
                 <button class="button-full-width secondary">Accéder à la page de suppression</button>
             </a>
