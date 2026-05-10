@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../src/constants.php';
 require_once __DIR__ . '/../src/functions.php';
 
 $pets = getPets();
@@ -60,8 +61,8 @@ $pets = getPets();
                     <?php foreach ($pets as $pet) { ?>
                         <tr>
                             <td><?= $pet['name'] ?></td>
-                            <td><?= $pet['species'] ?></td>
-                            <td><?= $pet['gender'] ?></td>
+                            <td><?= PET_SPECIES[$pet['species']] ?></td>
+                            <td><?= PET_SEXES[$pet['sex']] ?></td>
                             <td><?= $pet['birthday'] ?></td>
                             <td>
                                 <a href="./view.php?id=<?= $pet['id'] ?>">

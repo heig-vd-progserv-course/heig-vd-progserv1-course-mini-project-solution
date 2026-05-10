@@ -2,7 +2,21 @@
 require_once __DIR__ . '/database.php';
 
 function getPets(): array {
-    global $pets;
+    global $pdo;
+
+    $sql = "SELECT * FROM pets ORDER BY name ASC";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute();
+
+    $pets = $stmt->fetchAll();
+
+    foreach ($pets as &$pet) {
+        if ($pet['personalities']) {
+            $pet['personalities'] = explode(",", $pet['personalities']);
+        }
+    }
 
     return $pets;
 }
