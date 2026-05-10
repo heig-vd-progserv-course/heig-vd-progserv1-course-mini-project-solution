@@ -8,12 +8,22 @@ function getPets(): array {
 }
 
 function getPetById(int $id): ?array {
-    global $pets;
+    global $pdo;
 
-    foreach ($pets as $pet) {
-        if ($pet['id'] === $id) {
-            return $pet;
+    $stmt = $pdo->prepare("SELECT * FROM pets WHERE id = :id");
+
+    $stmt->bindValue(':id', $id);
+
+    $stmt->execute();
+
+    $pet = $stmt->fetch();
+
+    if ($pet) {
+        if ($pet['personalities']) {
+            $pet['personalities'] = explode(",", $pet['personalities']);
         }
+
+        return $pet;
     }
 
     return null;

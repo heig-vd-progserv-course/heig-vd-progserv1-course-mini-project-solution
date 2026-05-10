@@ -57,6 +57,34 @@ if ($pet === null) {
             <li><strong>Espèce</strong> : <?= PET_SPECIES[$pet['species']] ?></li>
             <li><strong>Sexe</strong> : <?= PET_SEXES[$pet['sex']] ?></li>
             <li><strong>Date de naissance</strong> : <?= $pet['birthday'] ?></li>
+            <?php if ($pet['nickname']) { ?>
+                <li><strong>Surnom</strong> : <?= $pet['nickname'] ?></li>
+            <?php } ?>
+            <?php if ($pet['color']) { ?>
+                <li><strong>Couleur</strong> :
+                    <span class="color-chip" style="background-color: <?= $pet['color'] ?>;"></span>
+                    <?= $pet['color'] ?>
+                </li>
+            <?php } ?>
+            <?php if ($pet['personalities']) { ?>
+                <li>
+                    <strong>Personnalité</strong> :
+                    <ul>
+                        <?php foreach ($pet['personalities'] as $personality) { ?>
+                            <li><?= PET_PERSONALITIES[$personality] ?></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+            <?php } ?>
+            <?php if ($pet['size']) { ?>
+                <li><strong>Taille</strong> : <?= $pet['size'] ?> cm</li>
+            <?php } ?>
+            <?php if ($pet['weight']) { ?>
+                <li><strong>Poids</strong> : <?= $pet['weight'] ?> kg</li>
+            <?php } ?>
+            <?php if ($pet['notes']) { ?>
+                <li><strong>Notes</strong> : <?= nl2br($pet['notes']) ?></li>
+            <?php } ?>
         </ul>
     </main>
     <footer>
