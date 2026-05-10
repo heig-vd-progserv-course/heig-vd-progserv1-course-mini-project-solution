@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../src/constants.php';
 require_once __DIR__ . '/../src/functions.php';
 
 $petId = $_GET['id'] ?? null;
@@ -53,8 +54,8 @@ if ($pet === null) {
         <h1><?= $pet['name'] ?></h1>
 
         <ul>
-            <li><strong>Espèce</strong> : <?= $pet['species'] ?></li>
-            <li><strong>Sexe</strong> : <?= $pet['gender'] ?></li>
+            <li><strong>Espèce</strong> : <?= PET_SPECIES[$pet['species']] ?></li>
+            <li><strong>Sexe</strong> : <?= PET_SEXES[$pet['sex']] ?></li>
             <li><strong>Date de naissance</strong> : <?= $pet['birthday'] ?></li>
         </ul>
     </main>
