@@ -1,20 +1,47 @@
 <?php
 require_once __DIR__ . '/../src/functions.php';
 
+$petId = $_GET['id'] ?? $_POST["id"];
+
+if ($petId === null) {
+    header('Location: ./index.php');
+    exit;
+}
+
+$pet = getPetById($petId);
+
+if ($pet === null) {
+    header('Location: ./index.php');
+    exit;
+}
+
 // Définition des valeurs par défaut de l'animal de compagnie
-$name = $_POST["name"] ?? null;
-$species = $_POST["species"] ?? null;
-$nickname = $_POST["nickname"] ?? null;
-$sex = $_POST["sex"] ?? null;
-$birthday = $_POST["birthday"] ?? null;
-$color = $_POST["color"] ?? null;
-$personalities = $_POST["personalities"] ?? [];
-$size = $_POST["size"] ?? null;
-$weight = $_POST["weight"] ?? null;
-$notes = $_POST["notes"] ?? null;
+$petId = $pet['id'] ?? '';
+$name = $pet['name'] ?? '';
+$species = $pet['species'] ?? '';
+$nickname = $pet['nickname'] ?? '';
+$sex = $pet['sex'] ?? '';
+$birthday = $pet['birthday'] ?? '';
+$color = $pet['color'] ?? '';
+$personalities = $pet['personalities'] ?? [];
+$size = $pet['size'] ?? '';
+$weight = $pet['weight'] ?? '';
+$notes = $pet['notes'] ?? '';
 
 // Gestion de la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $petId = $_POST["id"] ?? null;
+    $name = $_POST["name"] ?? null;
+    $species = $_POST["species"] ?? null;
+    $nickname = $_POST["nickname"] ?? null;
+    $sex = $_POST["sex"] ?? null;
+    $birthday = $_POST["birthday"] ?? null;
+    $color = $_POST["color"] ?? null;
+    $personalities = $_POST["personalities"] ?? null;
+    $size = $_POST["size"] ?? null;
+    $weight = $_POST["weight"] ?? null;
+    $notes = $_POST["notes"] ?? null;
+
     // Validation de l'animal de compagnie
     $errors = validatePet(
         $name,
@@ -31,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // S'il n'y a pas d'erreurs, ajoute l'animal de compagnie à la base de données
     if (empty($errors)) {
-        $newPetId = addPet(
+        $success = updatePet(
+            $petId,
             $name,
             $species,
             $nickname ?: null,
@@ -44,11 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $notes ?: null,
         );
 
-        if ($newPetId !== null) {
-            header('Location: ./view.php?id=' . $newPetId);
+        if ($success) {
+            header('Location: ./view.php?id=' . $petId);
             exit;
         } else {
-            $errors = array_push($errors, "Une erreur est survenue lors de l'ajout de l'animal de compagnie.");
+            $errors = array_push($errors, "Une erreur est survenue lors de la mise à jour de l'animal de compagnie.");
         }
     }
 }
@@ -64,8 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 
-    <title>Page de création | ninetendogs</title>
-    <meta name="description" content="ninetendogs - Gestionnaire d'animaux de compagnie - Création d'un animal de compagnie">
+    <title>Page d'édition | ninetendogs</title>
+    <meta name="description" content="ninetendogs - Gestionnaire d'animaux de compagnie - Édition d'un animal de compagnie">
 </head>
 
 <body class="container">
@@ -83,12 +111,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <nav aria-label="breadcrumb">
             <ul>
                 <li><a href="./index.php">Accueil</a></li>
-                <li>Nouvel animal</li>
+                <li><a href="./view.php?id=<?= htmlspecialchars($petId) ?>"><?= htmlspecialchars($name) ?></a></li>
+                <li>Édition de l'animal</li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Créer un nouvel animal de compagnie</h1>
+        <h1>Modifier <?= htmlspecialchars($name) ?></h1>
 
         <?php if ($_SERVER["REQUEST_METHOD"] === "POST") { ?>
             <?php if (!empty($errors)) { ?>
@@ -101,7 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php } ?>
         <?php } ?>
 
-        <form action="./create.php" method="POST">
+        <form action="./edit.php?id=<?= htmlspecialchars($petId) ?>" method="POST">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($petId) ?>" />
+
             <label for="name">Nom</label>
             <input
                 type="text"
@@ -272,7 +303,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 minlength="10"
                 maxlength="500"><?= htmlspecialchars($notes) ?></textarea>
 
-            <button type="submit">Créer le nouvel animal</button>
+            <button type="submit">Mettre à jour l'animal</button>
+            <a href="./view.php?id=<?= htmlspecialchars($petId) ?>">
+                <button type="button" class="button-full-width secondary">Revenir à la page de visualisation</button>
+            </a>
         </form>
     </main>
     <footer>

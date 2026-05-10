@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../src/constants.php';
 require_once __DIR__ . '/../src/functions.php';
 
 $petId = $_GET['id'] ?? null;
@@ -45,18 +46,55 @@ if ($pet === null) {
         <nav aria-label="breadcrumb">
             <ul>
                 <li><a href="./index.php">Accueil</a></li>
-                <li><?= $pet['name'] ?></li>
+                <li><?= htmlspecialchars($pet['name']) ?></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1><?= $pet['name'] ?></h1>
+        <h1><?= htmlspecialchars($pet['name']) ?></h1>
 
         <ul>
-            <li><strong>Espèce</strong> : <?= $pet['species'] ?></li>
-            <li><strong>Sexe</strong> : <?= $pet['gender'] ?></li>
-            <li><strong>Date de naissance</strong> : <?= $pet['birthday'] ?></li>
+            <li><strong>Espèce</strong> : <?= PET_SPECIES[htmlspecialchars($pet['species'])] ?></li>
+            <li><strong>Sexe</strong> : <?= PET_SEXES[htmlspecialchars($pet['sex'])] ?></li>
+            <li><strong>Date de naissance</strong> : <?= htmlspecialchars($pet['birthday']) ?></li>
+            <?php if ($pet['nickname']) { ?>
+                <li><strong>Surnom</strong> : <?= htmlspecialchars($pet['nickname']) ?></li>
+            <?php } ?>
+            <?php if ($pet['color']) { ?>
+                <li><strong>Couleur</strong> :
+                    <span class="color-chip" style="background-color: <?= htmlspecialchars($pet['color']) ?>;"></span>
+                    <?= htmlspecialchars($pet['color']) ?>
+                </li>
+            <?php } ?>
+            <?php if ($pet['personalities']) { ?>
+                <li>
+                    <strong>Personnalité</strong> :
+                    <ul>
+                        <?php foreach ($pet['personalities'] as $personality) { ?>
+                            <li><?= PET_PERSONALITIES[htmlspecialchars($personality)] ?></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+            <?php } ?>
+            <?php if ($pet['size']) { ?>
+                <li><strong>Taille</strong> : <?= htmlspecialchars($pet['size']) ?> cm</li>
+            <?php } ?>
+            <?php if ($pet['weight']) { ?>
+                <li><strong>Poids</strong> : <?= htmlspecialchars($pet['weight']) ?> kg</li>
+            <?php } ?>
+            <?php if ($pet['notes']) { ?>
+                <li><strong>Notes</strong> : <?= nl2br(htmlspecialchars($pet['notes'])) ?></li>
+            <?php } ?>
         </ul>
+
+        <div>
+            <a href="./edit.php?id=<?= htmlspecialchars($pet['id']) ?>">
+                <button class="button-full-width">Accéder à la page de modification</button>
+            </a>
+            <a href="./delete.php?id=<?= htmlspecialchars($pet['id']) ?>">
+                <button class="button-full-width secondary">Accéder à la page de suppression</button>
+            </a>
+        </div>
     </main>
     <footer>
         <center>
