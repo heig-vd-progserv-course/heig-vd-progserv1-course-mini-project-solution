@@ -29,13 +29,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $notes,
     );
 
-    // S'il n'y a pas d'erreurs, affiche les données de l'animal de compagnie qui va être ajouté
+    // S'il n'y a pas d'erreurs, ajoute l'animal de compagnie à la base de données
     if (empty($errors)) {
-        // Information de debug : affichage du contenu de la variable $_POST
-        // À supprimer une fois que le formulaire fonctionne correctement
-        echo "Succès ! L'animal de compagnie va être ajouté avec les données suivantes : ";
+        $newPetId = addPet(
+            $name,
+            $species,
+            $nickname ?: null,
+            $sex,
+            $birthday ?: null,
+            $color ?: null,
+            $personalities ?: [],
+            $size ?: null,
+            $weight ?: null,
+            $notes ?: null,
+        );
 
-        print_r($_POST);
+        if ($newPetId !== null) {
+            header('Location: ./view.php?id=' . $newPetId);
+            exit;
+        } else {
+            $errors = array_push($errors, "Une erreur est survenue lors de l'ajout de l'animal de compagnie.");
+        }
     }
 }
 ?>
