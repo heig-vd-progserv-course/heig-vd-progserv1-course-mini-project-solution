@@ -107,3 +107,79 @@ function validatePet(
 
     return $errors;
 }
+
+function addPet(
+    string $name,
+    string $species,
+    ?string $nickname,
+    string $sex,
+    ?string $birthday,
+    ?string $color,
+    ?array $personalities,
+    ?string $size,
+    ?string $weight,
+    ?string $notes,
+): ?int {
+    global $pdo;
+
+    $sql = "INSERT INTO pets (
+        name,
+        species,
+        nickname,
+        sex,
+        birthday,
+        color,
+        personalities,
+        size,
+        weight,
+        notes
+    ) VALUES (
+        :name,
+        :species,
+        :nickname,
+        :sex,
+        :birthday,
+        :color,
+        :personalities,
+        :size,
+        :weight,
+        :notes
+    )";
+
+    $stmt = $pdo->prepare($sql);
+
+    if ($personalities) {
+        $personalities = implode(",", $personalities);
+    }
+
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':species', $species);
+    $stmt->bindValue(':nickname', $nickname);
+    $stmt->bindValue(':sex', $sex);
+    $stmt->bindValue(':birthday', $birthday);
+    $stmt->bindValue(':color', $color);
+    $stmt->bindValue(':personalities', $personalities);
+    $stmt->bindValue(':size', $size);
+    $stmt->bindValue(':weight', $weight);
+    $stmt->bindValue(':notes', $notes);
+
+    $stmt->execute();
+
+    // Alternativement, on peut aussi utiliser la syntaxe suivante pour lier les valeurs et exécuter la requête en une seule étape :
+    // $success = $stmt->execute([
+    //     ':name' => $name,
+    //     ':species' => $species,
+    //     ':nickname' => $nickname,
+    //     ':sex' => $sex,
+    //     ':birthday' => $birthday,
+    //     ':color' => $color,
+    //     ':personalities' => $personalities ? implode(",", $personalities) : null,
+    //     ':size' => $size,
+    //     ':weight' => $weight,
+    //     ':notes' => $notes,
+    // ]);
+
+    $lastInsertId = $pdo->lastInsertId();
+
+    return $lastInsertId;
+}

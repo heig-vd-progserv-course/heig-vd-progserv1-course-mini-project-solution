@@ -240,7 +240,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 value="<?= $size ?>"
                 min="1" />
 
-            <label for="size">Poids en kg (optionnel)</label>
+            <label for="weight">Poids en kg (optionnel)</label>
             <input
                 type="number"
                 id="weight"
