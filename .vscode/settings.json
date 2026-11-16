@@ -21,5 +21,6 @@
 	"prettier.printWidth": 80,
 	"prettier.proseWrap": "always",
 	"prettier.tabWidth": 2,
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
+	"workbench.browser.openLocalhostLinks": false
 }

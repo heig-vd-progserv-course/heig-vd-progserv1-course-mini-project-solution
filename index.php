@@ -1,50 +1,38 @@
-<?php
-const PAGE_TITLE = "Page d'accueil du cours Programmation serveur 1 (ProgServ1)";
-const PAGE_DESCRIPTION = "La page d'accueil du cours de Programmation serveur 1 (ProgServ1) !";
-const WELCOME_MESSAGE = "Bienvenue sur la page d'accueil du cours de Programmation serveur 1 (ProgServ1) !";
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="https://unpkg.com/@digicreon/mucss/dist/mu.css">
 
-    <title><?php echo PAGE_TITLE; ?></title>
-    <meta name="description" content="<?php echo PAGE_DESCRIPTION; ?>">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>ProgServ1 - Corrigé du mini-project</title>
 </head>
 
-<body>
-    <h1><?php echo PAGE_TITLE; ?></h1>
+<body class="container">
+    <main>
+        <h1>ProgServ1 - Corrigé du mini-project</h1>
 
-    <p><?php echo WELCOME_MESSAGE; ?></p>
+        <div class="alert alert-primary" role="alert">
+            <p>Le support de cours est disponible sur GitHub : <a href="https://github.com/heig-vd-progserv-course/heig-vd-progserv1-course">heig-vd-progserv-course/heig-vd-progserv1-course</a>.</p>
+        </div>
 
-    <ul>
-        <li>Accéder aux <a href="./exercices/index.php">exercices</a>.</li>
-        <li>Accéder au <a href="./mini-projet/public/index.php">mini-projet</a>.</li>
-        <li>Accéder à la page de <a href="./phpinfo.php">configuration de PHP</a>.</li>
-        <li>Tester la gestion des exceptions avec le fichier <a href="./exception.php">exception.php</a>.</li>
-    </ul>
+        <p>Ce site web contient les résultats des séances de travaux pratiques du cours <a href="https://github.com/heig-vd-progserv-course/heig-vd-progserv1-course">ProgServ1</a>.</p>
+
+        <p>Pour chaque séance, vous trouverez un lien vers le résultat final de la séance. Le code source du mini-project avec les corrections de chaque séance est disponible sur GitHub : <a href="https://github.com/heig-vd-progserv-course/heig-vd-progserv1-course-mini-project-solution">heig-vd-progserv-course/heig-vd-progserv1-course-mini-project-solution</a>.</p>
+
+        <h2>Résultats des séances</h2>
+
+        <ul>
+            <li><a href="./seance-1/public/index.php">Résultat de la séance 1.</a></li>
+            <li><a href="./seance-2/public/index.php">Résultat de la séance 2.</a></li>
+            <li><a href="./seance-3/public/index.php">Résultat de la séance 3.</a></li>
+            <li><a href="./seance-4/public/index.php">Résultat de la séance 4.</a></li>
+            <li><a href="./seance-5/public/index.php">Résultat de la séance 5 (final).</a></li>
+        </ul>
+
+    </main>
 </body>
 
 </html>
