@@ -100,7 +100,7 @@ const TASK_PRIORITIES = [
                     <?php } ?>
 
                     <footer>
-                        <a class="btn btn-primary btn-sm" href="./view.php?id=<?= htmlspecialchars($task['id']) ?>">
+                        <a class="btn btn-primary btn-sm" href="./view.php">
                             Visualiser la tâche
                         </a>
                     </footer>

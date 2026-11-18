@@ -1,32 +1,11 @@
 <?php
-$tasks = [
-    [
-        'id' => 1,
-        'name' => 'Exemple de tâche 1',
-        'kind' => 'personal',
-        'priority' => 'high',
-        'deadline' => '2023-10-15',
-        'description' => 'Description de la tâche 1.',
-    ],
-    [
-        'id' => 2,
-        'name' => 'Exemple de tâche 2',
-        'kind' => 'other',
-        'priority' => 'medium',
-        'deadline' => '2023-11-01',
-    ],
-    [
-        'id' => 3,
-        'name' => 'Exemple de tâche 3',
-        'kind' => 'personal',
-        'priority' => 'high',
-    ],
-    [
-        'id' => 4,
-        'name' => 'Exemple de tâche 4',
-        'kind' => 'work',
-        'priority' => 'low',
-    ],
+$task = [
+    'id' => 1,
+    'name' => 'Exemple de tâche 1',
+    'kind' => 'personal',
+    'priority' => 'high',
+    'deadline' => '2023-10-15',
+    'description' => 'Description de la tâche 1.',
 ];
 
 const TASK_KINDS = [
@@ -40,22 +19,6 @@ const TASK_PRIORITIES = [
     'medium' => 'Moyenne',
     'high' => 'Haute',
 ];
-
-$taskId = $_GET['id'] ?? null;
-
-if ($taskId === null) {
-    header('Location: ./index.php');
-    exit;
-}
-
-$task = null;
-
-foreach ($tasks as $t) {
-    if ($t['id'] === (int) $taskId) {
-        $task = $t;
-        break;
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -109,10 +72,10 @@ foreach ($tasks as $t) {
             <?php } ?>
 
             <footer>
-                <a class="btn btn-primary btn-sm" href="./edit.php?id=<?= htmlspecialchars($task['id']) ?>">
+                <a class="btn btn-primary btn-sm" href="./edit.php">
                     Modifier la tâche
                 </a>
-                <a class="btn btn-error btn-sm" href="./delete.php?id=<?= htmlspecialchars($task['id']) ?>">
+                <a class="btn btn-error btn-sm" href="./delete.php">
                     Supprimer la tâche
                 </a>
             </footer>

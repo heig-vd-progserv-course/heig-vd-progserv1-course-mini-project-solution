@@ -7,12 +7,12 @@
 	"editor.formatOnSave": true,
 	"editor.renderWhitespace": "all",
 	"editor.rulers": [80],
-	// Uncomment to disable inline suggestions, which can be distracting for learning purposes
+	// (Un)comment to disable inline suggestions, which can be distracting for learning purposes
 	// "editor.inlineSuggest.enabled": false,
 	"files.encoding": "utf8",
 	"files.eol": "\n",
 	"files.insertFinalNewline": true,
-	// Uncomment to disable GitHub Copilot, which can be distracting for learning purposes
+	// (Un)comment to disable GitHub Copilot, which can be distracting for learning purposes
 	// "github.copilot.enable": {
 	// 	"*": false
 	// },

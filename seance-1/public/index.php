@@ -48,7 +48,7 @@
             Description de la tâche 1.
 
             <footer>
-                <a class="btn btn-primary btn-sm" href="./view.php?id=1">
+                <a class="btn btn-primary btn-sm" href="./view.php">
                     Visualiser la tâche
                 </a>
             </footer>
@@ -64,7 +64,7 @@
             </p>
 
             <footer>
-                <a class="btn btn-primary btn-sm" href="./view.php?id=2">
+                <a class="btn btn-primary btn-sm" href="./view.php">
                     Visualiser la tâche
                 </a>
             </footer>
@@ -82,7 +82,7 @@
             <p>Description de la tâche 3.</p>
 
             <footer>
-                <a class="btn btn-primary btn-sm" href="./view.php?id=3">
+                <a class="btn btn-primary btn-sm" href="./view.php">
                     Visualiser la tâche
                 </a>
             </footer>
@@ -99,7 +99,7 @@
             Description de la tâche 4.
 
             <footer>
-                <a class="btn btn-primary btn-sm" href="./view.php?id=4">
+                <a class="btn btn-primary btn-sm" href="./view.php">
                     Visualiser la tâche
                 </a>
             </footer>

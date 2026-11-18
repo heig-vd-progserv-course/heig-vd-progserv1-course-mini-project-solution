@@ -1,12 +1,3 @@
-<?php
-$taskId = $_GET['id'] ?? null;
-
-if ($taskId === null) {
-    header('Location: ./index.php');
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -35,13 +26,31 @@ if ($taskId === null) {
         <nav aria-label="breadcrumb">
             <ul>
                 <li><a href="./index.php">Accueil</a></li>
-                <li><em>Contenu à venir...</em></li>
+                <li>Exemple de tâche 1</li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Affiche la tâche avec l'identifiant <?= htmlspecialchars($taskId) ?></h1>
-        <p><em>Contenu à venir...</em></p>
+        <article>
+            <h1>Exemple de tâche 1</h1>
+
+            <p>
+                <span class="badge badge-contrast">Personnel</span>
+                <span class="badge badge-primary">Haute</span>
+                <span class="badge badge-secondary">2027-01-24</span>
+            </p>
+
+            Description de la tâche 1.
+
+            <footer>
+                <a class="btn btn-primary btn-sm" href="./edit.php">
+                    Modifier la tâche
+                </a>
+                <a class="btn btn-error btn-sm" href="./delete.php">
+                    Supprimer la tâche
+                </a>
+            </footer>
+        </article>
     </main>
     <footer>
         <center>
